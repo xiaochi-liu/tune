@@ -37,7 +37,7 @@ two_class_set <-
 set.seed(2494)
 two_class_grid <-
   two_class_set %>%
-  grid_max_entropy(size = 10)
+  grid_max_entropy(size = 20)
 
 class_metrics <- metric_set(roc_auc, accuracy, kap, mcc)
 

@@ -59,6 +59,14 @@ text_set <-
 set.seed(8935)
 folds <- group_vfold_cv(training_data, "product")
 
+grid <-
+  text_set %>%
+  grid_max_entropy(size = 20)
+
+res <- tune_adapt(text_wflow, rs = folds, grid = grid, perf = metric_set(roc_auc),
+                  control = grid_control(verbose = FALSE))
+
+
 # ------------------------------------------------------------------------------
 
 decr_trade_off <- function(i) {

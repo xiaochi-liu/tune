@@ -40,7 +40,9 @@ chi_set <-
 
 chi_grid <-
   chi_set %>%
-  grid_max_entropy(size = 5)
+  grid_max_entropy(size = 25)
+
+res <- tune_adapt(chi_wflow, rs = data_folds, grid = chi_grid)
 
 
 ext <- function(x) {

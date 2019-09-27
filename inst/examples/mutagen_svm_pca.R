@@ -38,12 +38,12 @@ Mutagen_param <-
 set.seed(552)
 Mutagen_grid <-
   Mutagen_param %>%
-  grid_max_entropy(size = 5)
+  grid_max_entropy(size = 50)
 
-class_only <- metric_set(accuracy, kap, mcc)
+class_only <- metric_set(roc_auc, accuracy, kap, mcc)
 
-res <- tune_grid(Mutagen_wflow, data_folds, Mutagen_grid, perf = class_only,
-                 control = grid_control(verbose = TRUE))
+res <- tune_adapt(Mutagen_wflow, rs = data_folds, grid = Mutagen_grid, perf = class_only,
+                  control = grid_control(verbose = FALSE))
 
 
 summarize(res) %>% filter(.metric == "accuracy") %>% arrange(desc(mean))
