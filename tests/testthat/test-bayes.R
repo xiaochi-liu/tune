@@ -31,7 +31,7 @@ test_that('tune recipe only', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(lm_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1, 5)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1L, 5L)))
   folds <- vfold_cv(mtcars)
   res <- tune_bayes(wflow, resamples = folds, param_info = pset,
                     initial = iter1, iter = iter2)
@@ -91,7 +91,7 @@ test_that('tune model and recipe', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(svm_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1, 3)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1L, 3L)))
   folds <- vfold_cv(mtcars)
   res <- tune_bayes(wflow, resamples = folds, param_info = pset,
                     initial = iter1, iter = iter2)
@@ -115,7 +115,7 @@ test_that('tune model and recipe (multi-predict)', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(svm_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(2, 3)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(2L, 3L)))
   grid <- grid_regular(pset, levels = c(3, 2))
   folds <- vfold_cv(mtcars)
   res <- tune_bayes(wflow, resamples = folds, param_info = pset,
@@ -139,8 +139,8 @@ test_that('tune recipe and model, which has_unknowns', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(rf_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(3, 5)),
-                                              mtry = mtry(c(1, 3)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(3L, 5L)),
+                                              mtry = mtry(c(1L, 3L)))
   expect_true(
     any(
       vapply(

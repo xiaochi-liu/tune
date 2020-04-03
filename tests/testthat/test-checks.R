@@ -8,7 +8,7 @@ load(test_path("svm_results.RData"))
 # ------------------------------------------------------------------------------
 
 test_that('rsample objects', {
-  
+
   obj_cv <- rsample::vfold_cv(mtcars)
   obj_loo <- rsample::loo_cv(mtcars)
   obj_nst <- rsample::nested_cv(mtcars, obj_cv, inside = bootstraps())
@@ -20,14 +20,14 @@ test_that('rsample objects', {
 # ------------------------------------------------------------------------------
 
 test_that('grid objects', {
-  
+
   grid_1 <- tibble(
-    penalty = 1:10, mixture = 1:10, imputation = 1:10,
-    threshold = 1:10, deg_free = 1:10, degree = 1:10
+    penalty = 1:10, mixture = 1:10, imputation = 1L:10L,
+    threshold = 1:10, deg_free = 1L:10L, degree = 1L:10L
   )
 
   set_1 <- dials::parameters(chi_wflow)
-  set_2 <- set_1 %>% update(deg_free = dials::deg_free(c(1, 3)))
+  set_2 <- set_1 %>% update(deg_free = dials::deg_free(c(1L, 3L)))
 
   expect_equal(tune:::check_grid(grid_1, chi_wflow), grid_1)
 
@@ -49,7 +49,7 @@ test_that('grid objects', {
 })
 
 test_that("Unknown `grid` columns are caught", {
-  
+
   data <- data.frame(x = 1:2, y = 1:2)
 
   rec <- recipes::recipe(y ~ x, data = data)
@@ -72,7 +72,7 @@ test_that("Unknown `grid` columns are caught", {
 })
 
 test_that("Missing required `grid` columns are caught", {
-  
+
   data <- data.frame(x = 1:2, y = 1:2)
 
   rec <- recipes::recipe(y ~ x, data = data)
@@ -97,7 +97,7 @@ test_that("Missing required `grid` columns are caught", {
 # ------------------------------------------------------------------------------
 
 test_that('workflow objects', {
-  
+
   skip_if_not_installed("xgboost")
   wflow_1 <-
     workflow() %>%
@@ -131,7 +131,7 @@ test_that('workflow objects', {
 # ------------------------------------------------------------------------------
 
 test_that('yardstick objects', {
-  
+
   metrics_1 <- tune:::check_metrics(NULL, chi_wflow)
   metrics_2 <- yardstick::metric_set(yardstick:::rmse)
   expect_true(inherits(metrics_1, "numeric_metric_set"))
@@ -141,7 +141,7 @@ test_that('yardstick objects', {
 })
 
 test_that('metrics must match the parsnip engine', {
-  
+
   metric_set1 <- yardstick::metric_set(yardstick::accuracy)
   metric_set2 <- yardstick::metric_set(yardstick::rmse)
 
@@ -165,7 +165,7 @@ test_that('metrics must match the parsnip engine', {
 # ------------------------------------------------------------------------------
 
 test_that('grid control objects', {
-  
+
   expect_error(control_grid(), NA)
   expect_error(control_grid(tomato = 1))
   expect_error(control_grid(verbose = 1), "Argument 'verbose' should be a single logical")
@@ -186,7 +186,7 @@ test_that('grid control objects', {
 })
 
 test_that('Bayes control objects', {
-  
+
   expect_error(control_bayes(), NA)
   expect_error(control_bayes(tomato = 1))
   expect_error(control_bayes(verbose = 1), "Argument 'verbose' should be a single logical")
@@ -216,7 +216,7 @@ test_that('Bayes control objects', {
 # ------------------------------------------------------------------------------
 
 test_that('initial values', {
-  
+
   svm_mod <-
     svm_rbf(cost = tune()) %>%
     set_engine("kernlab") %>%
@@ -255,7 +255,7 @@ test_that('initial values', {
 
 
 test_that('Acquisition function objects', {
-  
+
   expect_null(tune:::check_direction(FALSE))
   expect_error(tune:::check_direction(1), "should be a single logical.")
   expect_error(tune:::check_direction(rep(TRUE, 2)), "should be a single logical.")
@@ -270,7 +270,7 @@ test_that('Acquisition function objects', {
 # ------------------------------------------------------------------------------
 
 test_that('validation helpers', {
-  
+
   expect_true(tune:::check_class_or_null("a", "character"))
   expect_true(tune:::check_class_or_null(letters, "character"))
   expect_true(tune:::check_class_or_null(NULL, "character"))
@@ -285,7 +285,7 @@ test_that('validation helpers', {
 # ------------------------------------------------------------------------------
 
 test_that('check parameter finalization', {
-  
+
   rec <-
     recipe(mpg ~ ., data = mtcars) %>%
     step_ns(disp, deg_free = 3)
@@ -354,7 +354,7 @@ test_that('check parameter finalization', {
 
   p4_a <-
     parameters(w4) %>%
-    update(mtry = dials::mtry(c(1, 10)))
+    update(mtry = dials::mtry(c(1L, 10L)))
 
   expect_error(
     p4_b <- tune:::check_parameters(w4, p4_a, data = mtcars),

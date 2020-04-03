@@ -25,7 +25,7 @@ test_that('tune recipe only', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(lm_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1, 3)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1L, 3L)))
   grid <- grid_regular(pset, levels = 3)
   folds <- vfold_cv(mtcars)
   res <- tune_grid(wflow, resamples = folds, grid = grid)
@@ -83,7 +83,7 @@ test_that('tune model and recipe', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(svm_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1, 3)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(1L, 3L)))
   grid <- grid_regular(pset, levels = 3)
   folds <- vfold_cv(mtcars)
   res <- tune_grid(wflow, resamples = folds, grid = grid)
@@ -105,7 +105,7 @@ test_that('tune model and recipe (multi-predict)', {
 
   set.seed(4400)
   wflow <- workflow() %>% add_recipe(rec_tune_1) %>% add_model(svm_mod)
-  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(2, 3)))
+  pset <- dials::parameters(wflow) %>% update(num_comp = num_comp(c(2L, 3L)))
   grid <- grid_regular(pset, levels = c(3, 2))
   folds <- vfold_cv(mtcars)
   res <- tune_grid(wflow, resamples = folds, grid = grid)

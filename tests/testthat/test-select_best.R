@@ -27,9 +27,9 @@ context("`select_best()` and `show_best()`")
 #   cars_wflow %>%
 #   parameters %>%
 #   update(degree = degree_int(1:2)) %>%
-#   update(deg_free = deg_free(c(2, 10))) %>%
+#   update(deg_free = deg_free(c(2L, 10L))) %>%
 #   update(`wt degree` = degree_int(1:2)) %>%
-#   update(`wt df` = deg_free(c(2, 10)))
+#   update(`wt df` = deg_free(c(2L, 10L)))
 #
 # set.seed(255)
 # cars_grid <-

@@ -24,7 +24,7 @@ context("GP model and helpers")
 #
 # two_class_set <-
 #   parameters(two_class_wflow) %>%
-#   update(K = neighbors(c(1, 50))) %>%
+#   update(K = neighbors(c(L1, 50L))) %>%
 #   update(exponent = dist_power(c(1/10, 2)))
 #
 # set.seed(2494)

@@ -31,10 +31,10 @@ test_that('recipe with tunable parameters', {
   ids <- c('imputation', 'threshold', 'deg_free', 'degree')
   expect_equal(spline_info$id, ids)
 
-  expect_equal(spline_info$object[[1]], dials::neighbors(c(1, 10)))
+  expect_equal(spline_info$object[[1]], dials::neighbors(c(1L, 10L)))
   expect_equal(spline_info$object[[2]], dials::threshold(c(0, 1/10)))
-  expect_equal(spline_info$object[[3]], dials::spline_degree(c(1, 15)))
-  expect_equal(spline_info$object[[4]], dials::degree_int(c(1, 2)))
+  expect_equal(spline_info$object[[3]], dials::spline_degree(c(1L, 15L)))
+  expect_equal(spline_info$object[[4]], dials::degree_int(c(1L, 2L)))
 
 })
 
@@ -60,7 +60,7 @@ test_that('model with main and engine parameters', {
   ids <- c("funky name \n", "rules")
   expect_equal(c5_info$id, ids)
 
-  expect_equal(c5_info$object[[1]], dials::trees(c(1, 100)))
+  expect_equal(c5_info$object[[1]], dials::trees(c(1L, 100L)))
   expect_equal(c5_info$object[[2]], NA)
 })
 

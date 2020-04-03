@@ -23,7 +23,7 @@ mt_folds <- vfold_cv(mtcars, v = 5)
 # ------------------------------------------------------------------------------
 
 test_that('tune recipe only', {
-  
+
   extr_1_1 <- function(x) {
     extract_recipe(x) %>% tidy(number = 2)
   }
@@ -68,7 +68,7 @@ test_that('tune recipe only', {
 # ------------------------------------------------------------------------------
 
 test_that('tune model only', {
-  
+
   extr_2_1 <- function(x) {
     mod <- extract_model(x)
     tibble(index = mod@alphaindex[[1]], estimate = mod@coef[[1]])
@@ -128,7 +128,7 @@ test_that('tune model only', {
 # ------------------------------------------------------------------------------
 
 test_that('tune model and recipe', {
-  
+
   extr_3_1 <- function(x) {
     x
   }
@@ -140,7 +140,7 @@ test_that('tune model and recipe', {
   set.seed(35)
   grid_3 <-
     dials::parameters(wflow_3) %>%
-    update(num_comp = num_comp(c(2, 5))) %>%
+    update(num_comp = num_comp(c(2L, 5L))) %>%
     grid_latin_hypercube(size = 4)
 
   expect_error(

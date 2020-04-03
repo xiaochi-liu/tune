@@ -166,7 +166,7 @@ tunable.step_texthash <- function(x, ...) {
     name = c("signed", "num_terms"),
     call_info = list(
       list(pkg = "dials", fun = "signed_hash"),
-      list(pkg = "dials", fun = "num_hash", range = c(8, 12))
+      list(pkg = "dials", fun = "num_hash", range = c(8L, 12L))
     ),
     source = "recipe",
     component = "step_texthash",
@@ -301,7 +301,7 @@ tunable.boost_tree <- function(x, ...) {
   } else {
     if (x$engine == "C5.0") {
       res$call_info[res$name == "trees"] <-
-        list(list(pkg = "dials", fun = "trees", range = c(1, 100)))
+        list(list(pkg = "dials", fun = "trees", range = c(1L, 100L)))
     }
   }
   res
