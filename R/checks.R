@@ -94,11 +94,19 @@ check_grid <- function(x, object, pset = NULL) {
   x
 }
 
+
+has_unk <- function(x) {
+  if (all(is.na(x))) { #<- this is what happens when an engine parameter is tuned
+    return(FALSE)
+  }
+  dials::has_unknowns(x)
+}
+
 check_parameters <- function(object, pset = NULL, data) {
   if (is.null(pset)) {
     pset <- parameters(object)
   }
-  unk <- purrr::map_lgl(pset$object, dials::has_unknowns)
+  unk <- purrr::map_lgl(pset$object, has_unk)
   if (!any(unk)) {
     return(pset)
   }
