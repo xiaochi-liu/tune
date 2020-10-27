@@ -172,6 +172,14 @@ tune_grid_loop_iter <- function(iteration,
 
     iter_msg_preprocessor <- iter_grid_info[[".msg_preprocessor"]]
 
+    options(digits.secs = 3)
+    rlang::warn(
+      paste0(
+        "pid ", Sys.getpid(), " at ",
+        iter_grid_info[[".msg_preprocessor"]], " at ",
+        format(Sys.time(), "%Y-%m-%d %H:%M:%OS"))
+    )
+
     workflow <- finalize_workflow_preprocessor(
       workflow = workflow,
       grid_preprocessor = iter_grid_preprocessor
@@ -213,6 +221,13 @@ tune_grid_loop_iter <- function(iteration,
       iter_submodels <- iter_grid_info_model[[".submodels"]][[1L]]
       iter_msg_model <- iter_grid_info_model[[".msg_model"]]
       iter_config <- iter_grid_info_model[[".iter_config"]][[1L]]
+
+      rlang::warn(
+        paste0(
+          "pid ", Sys.getpid(), " at ",
+          gsub(",", "", iter_grid_info_model[[".msg_model"]]), " at ",
+              format(Sys.time(), "%Y-%m-%d %H:%M:%OS"))
+      )
 
       workflow <- finalize_workflow_spec(workflow, iter_grid_model)
 
