@@ -105,15 +105,16 @@ tune_grid_loop_iter <- function(iteration,
                                 metrics,
                                 control) {
 
+  print(sessionInfo())
   before <- list(si = sessionInfo(), lp = .libPaths())
-  save(before, file = paste0(tempdir(), "/before.RData"))
+  save(before, file = file.path(tempdir(), "before.RData"))
 
   load_pkgs(workflow)
   load_namespace(control$pkgs)
   set.seed(resamples$.seed[[iteration]])
 
   after <- list(si = sessionInfo(), lp = .libPaths())
-  save(after, file = paste0(tempdir(), "/after.RData"))
+  save(after, file = file.path(tempdir(), "after.RData"))
 
 
   control_parsnip <- parsnip::control_parsnip(verbosity = 0, catch = TRUE)
