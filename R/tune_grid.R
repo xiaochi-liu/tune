@@ -245,34 +245,6 @@ tune_grid.default <- function(object, ...) {
 }
 
 #' @export
-tune_grid.recipe <- function(object, model, resamples, ..., param_info = NULL,
-                             grid = 10, metrics = NULL, control = control_grid()) {
-
-  lifecycle::deprecate_soft("0.1.0",
-                            what = "tune_grid.recipe()",
-                            details = deprecate_msg(match.call(), "tune_grid"))
-  empty_ellipses(...)
-
-  tune_grid(model, preprocessor = object, resamples = resamples,
-            param_info = param_info, grid = grid,
-            metrics = metrics, control = control)
-}
-
-#' @export
-tune_grid.formula <- function(formula, model, resamples, ..., param_info = NULL,
-                              grid = 10, metrics = NULL, control = control_grid()) {
-
-  lifecycle::deprecate_soft("0.1.0",
-                            what = "tune_grid.formula()",
-                            details = deprecate_msg(match.call(), "tune_grid"))
-  empty_ellipses(...)
-
-  tune_grid(model, preprocessor = formula, resamples = resamples,
-            param_info = param_info, grid = grid,
-            metrics = metrics, control = control)
-}
-
-#' @export
 #' @rdname tune_grid
 tune_grid.model_spec <- function(object, preprocessor, resamples, ...,
                                  param_info = NULL, grid = 10, metrics = NULL,
@@ -333,7 +305,8 @@ tune_grid_workflow <- function(workflow,
                                grid = 10,
                                metrics = NULL,
                                pset = NULL,
-                               control = control_grid()) {
+                               control = control_grid(),
+                               rng = TRUE) {
   check_rset(resamples)
 
   metrics <- check_metrics(metrics, workflow)
@@ -346,8 +319,6 @@ tune_grid_workflow <- function(workflow,
   )
 
   check_workflow(workflow, pset = pset)
-
-  resamples <- dplyr::mutate(resamples, .seed = sample.int(10^5, nrow(resamples)))
 
   grid <- check_grid(
     grid = grid,
@@ -364,7 +335,8 @@ tune_grid_workflow <- function(workflow,
     grid = grid,
     workflow = workflow,
     metrics = metrics,
-    control = control
+    control = control,
+    rng = rng
   )
 
   if (is_cataclysmic(resamples)) {
@@ -375,8 +347,6 @@ tune_grid_workflow <- function(workflow,
   resamples[[".all_outcome_names"]] <- NULL
 
   workflow <- set_workflow(workflow, control)
-
-  resamples <- resamples %>% dplyr::select(-.seed)
 
   new_tune_results(
     x = resamples,

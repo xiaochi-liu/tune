@@ -44,7 +44,7 @@
 #'
 #' # You can also wrap up a preprocessor and a model into a workflow, and
 #' # supply that to `fit_resamples()` instead. Here, a workflows "variables"
-#' # preprocessor is used, which lets you supply terms using tidyselect.
+#' # preprocessor is used, which lets you supply terms using dplyr selectors.
 #' # The variables are used as-is, no preprocessing is done to them.
 #' wf <- workflow() %>%
 #'   add_variables(outcomes = mpg, predictors = everything()) %>%
@@ -64,40 +64,6 @@ fit_resamples.default <- function(object, ...) {
     "a model or workflow."
   )
   rlang::abort(msg)
-}
-
-#' @export
-fit_resamples.recipe <- function(object,
-                                 model,
-                                 resamples,
-                                 ...,
-                                 metrics = NULL,
-                                 control = control_resamples()) {
-
-  lifecycle::deprecate_soft("0.1.0",
-                            what = "fit_resamples.recipe()",
-                            details = deprecate_msg(match.call(), "fit_resamples"))
-  empty_ellipses(...)
-
-  fit_resamples(model, preprocessor = object, resamples = resamples,
-                metrics = metrics, control = control)
-}
-
-#' @export
-fit_resamples.formula <- function(formula,
-                                  model,
-                                  resamples,
-                                  ...,
-                                  metrics = NULL,
-                                  control = control_resamples()) {
-
-  lifecycle::deprecate_soft("0.1.0",
-                            what = "fit_resamples.formula()",
-                            details = deprecate_msg(match.call(), "fit_resamples"))
-  empty_ellipses(...)
-
-  fit_resamples(model, preprocessor = formula, resamples = resamples,
-                metrics = metrics, control = control)
 }
 
 #' @export
@@ -143,12 +109,18 @@ fit_resamples.workflow <- function(object,
 
   empty_ellipses(...)
 
-  resample_workflow(object, resamples, metrics, control)
+  resample_workflow(
+    workflow = object,
+    resamples = resamples,
+    metrics = metrics,
+    control = control,
+    rng = TRUE
+  )
 }
 
 # ------------------------------------------------------------------------------
 
-resample_workflow <- function(workflow, resamples, metrics, control) {
+resample_workflow <- function(workflow, resamples, metrics, control, rng) {
   # `NULL` is the signal that we have no grid to tune with
   grid <- NULL
   pset <- NULL
@@ -159,7 +131,8 @@ resample_workflow <- function(workflow, resamples, metrics, control) {
     grid = grid,
     metrics = metrics,
     pset = pset,
-    control = control
+    control = control,
+    rng = rng
   )
 
   attributes <- attributes(out)

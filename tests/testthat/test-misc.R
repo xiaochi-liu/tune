@@ -9,7 +9,7 @@ load(test_path("test_objects.RData"))
 
 test_that('model package lookup', {
   mod_obj <- workflows::pull_workflow_spec(chi_wflow)
-  expect_equal(tune:::required_pkgs(mod_obj, FALSE), "glmnet")
+  expect_equal(tune::required_pkgs(mod_obj, FALSE), "glmnet")
 })
 
 
@@ -106,11 +106,6 @@ test_that('accessor functions', {
 })
 
 test_that('required package lists', {
-  expect_equal(required_pkgs(bare_rec, FALSE), NULL)
-  expect_equal(required_pkgs(bare_rec, TRUE), tune:::infra_pkgs)
-
   expect_equal(required_pkgs(lm_model, FALSE), "stats")
-
   expect_equal(required_pkgs(chi_wflow, FALSE), "glmnet")
-
 })

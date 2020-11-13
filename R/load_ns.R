@@ -67,11 +67,6 @@ infra_pkgs <- c("tune", "recipes", "parsnip", "yardstick", "purrr", "dplyr",
 #' @param x An object.
 #' @return A character string.
 #' @keywords internal
-#' @export
-required_pkgs <- function(x, ...) {
-  UseMethod("required_pkgs")
-}
-
 #' @rdname required_pkgs
 #' @export
 required_pkgs.model_spec <- function(x, infra = TRUE, ...) {
@@ -104,23 +99,4 @@ required_pkgs.workflow <- function(x, infra = TRUE, ...) {
   res <- unique(res)
   res <- res[length(res) != 0]
   res
-}
-
-#' @rdname required_pkgs
-#' @export
-required_pkgs.recipe <- function(x, infra = TRUE, ...) {
-  res <- purrr::map(x$steps, required_pkgs)
-  res <- unique(unlist(res))
-  if (infra) {
-    res <- c(infra_pkgs, res)
-  }
-  res <- unique(res)
-  res <- res[length(res) != 0]
-  res
-}
-
-#' @rdname required_pkgs
-#' @export
-required_pkgs.step <- function(x, ...) {
-  character(0)
 }

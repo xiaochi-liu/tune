@@ -31,16 +31,6 @@
 
 # ------------------------------------------------------------------------------
 
-#' @importFrom dials parameters
-#' @export
-dials::parameters
-
-#' @importFrom ggplot2 autoplot
-#' @export
-ggplot2::autoplot
-
-# ------------------------------------------------------------------------------
-
 utils::globalVariables(
   c("engine", "name", "func", "parsnip", "call_name", ".step", "call_info",
     "component", "component_id", "id", "control", ".pred", ".metric",
@@ -51,7 +41,7 @@ utils::globalVariables(
     ".extracts", ".metrics", "value", ".notes", ".loss", ".bound",
     ".column", ".totals", ".value", "direction", ".config", "Freq", "Prediction",
     "Truth", ".seed", ".order", ".iter_model", ".iter_preprocessor",
-    ".iter_config", ".msg_model")
+    ".iter_config", ".msg_model", "# resamples")
   )
 
 # ------------------------------------------------------------------------------

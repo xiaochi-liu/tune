@@ -50,17 +50,44 @@ test_that("ellipses with last_fit", {
   )
 })
 
-test_that("argument order gives warnings for recipe/formula", {
+test_that("argument order gives errors for recipe/formula", {
   rec <- recipe(mpg ~ ., data = mtcars) %>% step_poly(disp)
   lin_mod <- linear_reg() %>%
     set_engine("lm")
 
-  expect_warning(
+  expect_error(
     last_fit(rec, lin_mod, split),
-    "is deprecated as of lifecycle"
+    "should be either a model or workflow"
   )
-  expect_warning(
+  expect_error(
     last_fit(f, lin_mod, split),
-    "is deprecated as of lifecycle"
+    "should be either a model or workflow"
+  )
+})
+
+test_that("same results of last_fit() and fit() (#300)", {
+  skip_if_not_installed("randomForest")
+
+  rf <- parsnip::rand_forest(mtry = 2, trees = 5) %>%
+    parsnip::set_engine("randomForest") %>%
+    parsnip::set_mode("regression")
+
+  wflow <- workflows::workflow() %>%
+    workflows::add_model(rf) %>%
+    workflows::add_formula(mpg ~ .)
+
+  set.seed(23598723)
+  split <- rsample::initial_split(mtcars)
+
+  set.seed(1)
+  lf_obj <- last_fit(wflow, split = split)
+
+  set.seed(1)
+  r_obj <- fit(wflow, data = analysis(split))
+  r_pred <- predict(r_obj, assessment(split))
+
+  expect_equal(
+    lf_obj$.predictions[[1]]$.pred,
+    r_pred$.pred
   )
 })
