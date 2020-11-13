@@ -121,6 +121,23 @@ tune_grid_loop_iter <- function(iteration,
     set.seed(seeds[[iteration]])
   }
 
+  get_ex_time <- function(split, event, duration, pp_iter = NA_integer_,
+                          mod_iter = NA_integer_) {
+    options(digits.secs = 3)
+    res <- labels(split)
+    res$pid <- Sys.getpid()
+    res$now <- lubridate::now()
+    res$duration <- duration
+    res$event <- event
+    res$pp_iter <- pp_iter
+    res$mod_iter <- mod_iter
+
+    f_name <- paste0("time_", res$pid, "_", pp_iter, "_", mod_iter, "_",
+                     stringi::stri_rand_strings(1, length = 15), ".RData")
+    save(res, file = file.path("~/tmp/", f_name))
+    invisible(NULL)
+  }
+
   control_parsnip <- parsnip::control_parsnip(verbosity = 0, catch = TRUE)
   control_workflow <- control_workflow(control_parsnip = control_parsnip)
 
@@ -170,23 +187,7 @@ tune_grid_loop_iter <- function(iteration,
 
   workflow_original <- workflow
 
-  get_ex_time <- function(split, msg, event, pp_iter = NA_integer_, mod_iter = NA_integer_) {
-    options(digits.secs = 3)
-    res <- labels(split)
-    res$pid <- Sys.getpid()
-    res$time <- lubridate::now()
-    res$msg <- msg
-    res$event <- event
-    res$pp_iter <- pp_iter
-    res$mod_iter <- mod_iter
-
-    f_name <- paste0("time_", stringi::stri_rand_strings(1, length = 15), ".RData")
-    save(res, file = file.path(tempdir(), f_name))
-    invisible(NULL)
-  }
-
   for (iter_preprocessor in iter_preprocessors) {
-    get_ex_time(split, msg = "start", event = "start")
 
     workflow <- workflow_original
 
@@ -202,25 +203,28 @@ tune_grid_loop_iter <- function(iteration,
 
     iter_msg_preprocessor <- iter_grid_info[[".msg_preprocessor"]]
 
-    get_ex_time(
-      split,
-      msg = iter_grid_info[[".msg_preprocessor"]],
-      event = "preproc-start",
-      pp_iter = iter_preprocessor,
-      mod_iter = 0
-    )
-
     workflow <- finalize_workflow_preprocessor(
       workflow = workflow,
       grid_preprocessor = iter_grid_preprocessor
     )
 
-    workflow <- catch_and_log(
-      .expr = .fit_pre(workflow, training),
-      control,
+    pp_time <-
+      system.time(
+        workflow <- catch_and_log(
+          .expr = .fit_pre(workflow, training),
+          control,
+          split,
+          iter_msg_preprocessor,
+          notes = out_notes
+        )
+      )[3]
+
+    get_ex_time(
       split,
-      iter_msg_preprocessor,
-      notes = out_notes
+      duration = pp_time,
+      event = "preproc",
+      pp_iter = iter_preprocessor,
+      mod_iter = 0
     )
 
     if (is_failure(workflow)) {
@@ -235,13 +239,6 @@ tune_grid_loop_iter <- function(iteration,
 
     workflow_preprocessed <- workflow
 
-    get_ex_time(
-      split,
-      msg = iter_grid_info[[".msg_preprocessor"]],
-      event = "preproc-fini",
-      pp_iter = iter_preprocessor,
-      mod_iter = 0
-    )
     for (iter_model in iter_models) {
       workflow <- workflow_preprocessed
 
@@ -260,22 +257,25 @@ tune_grid_loop_iter <- function(iteration,
       iter_config <- iter_grid_info_model[[".iter_config"]][[1L]]
 
 
-      get_ex_time(
-        split,
-        msg = iter_grid_info_model[[".msg_model"]],
-        event = "model-start",
-        pp_iter = iter_preprocessor,
-        mod_iter = iter_model
-      )
-
       workflow <- finalize_workflow_spec(workflow, iter_grid_model)
 
-      workflow <- catch_and_log_fit(
-        expr = .fit_model(workflow, control_workflow),
-        control,
+      mod_time <-
+        system.time(
+          workflow <- catch_and_log_fit(
+            expr = .fit_model(workflow, control_workflow),
+            control,
+            split,
+            iter_msg_model,
+            notes = out_notes
+          )
+        )[3]
+
+      get_ex_time(
         split,
-        iter_msg_model,
-        notes = out_notes
+        event = "model",
+        duration = mod_time,
+        pp_iter = iter_preprocessor,
+        mod_iter = iter_model
       )
 
       # Check for parsnip level and model level failure
@@ -317,14 +317,6 @@ tune_grid_loop_iter <- function(iteration,
         .config = iter_config
       )
 
-      get_ex_time(
-        split,
-        msg = iter_grid_info_model[[".msg_model"]],
-        event = "model-fini",
-        pp_iter = iter_preprocessor,
-        mod_iter = iter_model
-      )
-
       iter_msg_predictions <- paste(iter_msg_model, "(predictions)")
 
       iter_predictions <- catch_and_log(
@@ -361,21 +353,8 @@ tune_grid_loop_iter <- function(iteration,
         control = control,
         .config = iter_config_metrics
       )
-      get_ex_time(
-        split,
-        msg = iter_grid_info_model[[".msg_model"]],
-        event = "model-loop",
-        pp_iter = iter_preprocessor,
-        mod_iter = iter_model
-      )
+
     } # model loop
-    get_ex_time(
-      split,
-      msg = iter_grid_info[[".msg_preprocessor"]],
-      event = "preproc-loop",
-      pp_iter = iter_preprocessor,
-      mod_iter = iter_model
-    )
   } # preprocessor loop
 
   list(
