@@ -167,7 +167,10 @@ is_factorial <- function(x, cutoff = 0.95) {
 }
 
 
-is_regular_grid <- function(grid) {
+is_regular_grid <- function(grid, x) {
+  if (inherits(x, "iteration_results")) {
+    return(FALSE)
+  }
   num_points <- nrow(grid)
   p <- ncol(grid)
 
@@ -199,7 +202,7 @@ use_regular_grid_plot <- function(x) {
   dat <- collect_metrics(x)
   param_cols <- get_param_columns(x)
   grd <- dat %>% dplyr::select(one_of(param_cols)) %>% distinct()
-  is_regular_grid(grd)
+  is_regular_grid(grd, x)
 }
 
 # ------------------------------------------------------------------------------
@@ -367,7 +370,7 @@ plot_marginals <- function(x, metric = NULL) {
   x <-
     x %>%
     dplyr::rename(`# resamples` = n) %>%
-    dplyr::select(dplyr::one_of(param_cols), mean, `# resamples`, .metric) %>%
+    dplyr::select(dplyr::one_of(param_cols), mean, `# resamples`, .metric, .config) %>%
     tidyr::pivot_longer(cols = dplyr::one_of(num_param_cols))
 
   # ----------------------------------------------------------------------------
@@ -499,7 +502,7 @@ plot_regular_grid <- function(x, metric = NULL, ...) {
   dat <-
     dat %>%
     dplyr::rename(`# resamples` = n) %>%
-    dplyr::select(dplyr::one_of(param_cols), mean, `# resamples`, .metric) %>%
+    dplyr::select(dplyr::one_of(param_cols), mean, `# resamples`, .metric, .config) %>%
     tidyr::pivot_longer(cols = dplyr::one_of(x_col))
 
   # ------------------------------------------------------------------------------
