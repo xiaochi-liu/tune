@@ -6,7 +6,18 @@ catcher <- function(expr) {
     signals <<- append(signals, list(cnd))
     rlang::cnd_muffle(cnd)
   }
+  handle_error <- function(e) {
+    signals <<- append(signals, list(e))
+  }
 
-  res <- try(withCallingHandlers(warning = add_cond, expr), silent = TRUE)
+  res <-
+    withCallingHandlers(
+      expr = tryCatch(
+        expr = expr,
+        error = handle_error
+      ),
+      warning = add_cond
+    )
+
   list(res = res, signals = signals)
 }
