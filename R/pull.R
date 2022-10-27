@@ -192,7 +192,7 @@ append_predictions <- function(collection, predictions, split, control, .config 
 
 append_extracts <- function(collection, workflow, grid, split, ctrl, .config = NULL) {
   extracts <- dplyr::bind_cols(grid, labels(split))
-  extracts$.extracts <- extract_details(workflow, ctrl$extract)
+  extracts$.extracts <- list(extract_details(workflow, ctrl$extract))
 
   if (!rlang::is_null(.config)) {
     extracts <- cbind(extracts, .config)
