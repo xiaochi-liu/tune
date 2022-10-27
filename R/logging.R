@@ -119,7 +119,15 @@ log_problems <- function(notes, control, split, loc, res, bad_only = FALSE) {
   control2$verbose <- TRUE
 
   wrn <- res$signals
-  if (length(wrn) > 0 & all(map_lgl(wrn, inherits, "warning"))) {
+  wrn_cond <- length(wrn) > 0
+  err_cond <- inherits(res$res, "try-error")
+
+  if (grepl("extracts", loc)) {
+    wrn_cond <- wrn_cond & all(map_lgl(wrn, inherits, "warning"))
+    err_cond <- rlang::inherits_any(res$res[[1]], c("try-error", "error"))
+  }
+
+  if (wrn_cond) {
     wrn_msg <- purrr::map_chr(wrn, ~conditionMessage(.x))
     wrn_msg <- unique(wrn_msg)
     wrn_msg <- paste(wrn_msg, collapse = ", ")
@@ -131,9 +139,13 @@ log_problems <- function(notes, control, split, loc, res, bad_only = FALSE) {
     wrn_msg <- format_msg(loc, wrn_msg$note)
     tune_log(control2, split, wrn_msg, type = "warning")
   }
-  if (rlang::inherits_any(res$res[[1]], c("try-error", "error"))) {
-    err_msg <- conditionMessage(res$res[[1]])
-    err_msg <- gsub("\n$", "", err_msg)
+  if (err_cond) {
+    if (inherits(res$res, "try-error")) {
+      err_msg <- as.character(attr(res$res, "condition"))
+      err_msg <- gsub("\n$", "", err_msg)
+    } else {
+      err_msg <- conditionMessage(res$res[[1]])
+    }
 
     err_msg <- tibble::tibble(location = loc, type = "error", note = err_msg)
 
