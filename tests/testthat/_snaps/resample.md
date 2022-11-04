@@ -3,8 +3,14 @@
     Code
       result <- fit_resamples(lin_mod, rec, folds, control = control)
     Message
-      x Fold1: preprocessor 1/1: Error in if (!is.null(args$df) && is.null(args$knots) && args$df - degre...
-      x Fold2: preprocessor 1/1: Error in if (!is.null(args$df) && is.null(args$knots) && args$df - degre...
+      ! Fold1: preprocessor 1/1: missing value where TRUE/FALSE needed
+      x Fold1: internal:
+        Error in `.catch_and_log_fit()`:
+        ! Internal error: Model result is not a workflow!
+      ! Fold2: preprocessor 1/1: missing value where TRUE/FALSE needed
+      x Fold2: internal:
+        Error in `.catch_and_log_fit()`:
+        ! Internal error: Model result is not a workflow!
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
@@ -14,14 +20,18 @@
     Code
       result <- fit_resamples(workflow, folds, control = control)
     Message
-      x Fold1: preprocessor 1/1:
-        Error in `fit()`:
-        ! Can't subset columns that don't exist.
+      ! Fold1: preprocessor 1/1:
+        Can't subset columns that don't exist.
         x Column `foobar` doesn't exist.
-      x Fold2: preprocessor 1/1:
-        Error in `fit()`:
-        ! Can't subset columns that don't exist.
+      x Fold1: internal:
+        Error in `.catch_and_log_fit()`:
+        ! Internal error: Model result is not a workflow!
+      ! Fold2: preprocessor 1/1:
+        Can't subset columns that don't exist.
         x Column `foobar` doesn't exist.
+      x Fold2: internal:
+        Error in `.catch_and_log_fit()`:
+        ! Internal error: Model result is not a workflow!
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
@@ -31,12 +41,12 @@
     Code
       result <- fit_resamples(log_mod, rec, folds, control = control)
     Message
-      x Fold1: preprocessor 1/1, model 1/1:
-        Error in `check_outcome()`:
-        ! For a classification model, the outcome should be a factor.
-      x Fold2: preprocessor 1/1, model 1/1:
-        Error in `check_outcome()`:
-        ! For a classification model, the outcome should be a factor.
+      x Fold1: internal:
+        Error in `.catch_and_log_fit()`:
+        ! Internal error: Model result is not a workflow!
+      x Fold2: internal:
+        Error in `.catch_and_log_fit()`:
+        ! Internal error: Model result is not a workflow!
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.

@@ -71,14 +71,6 @@
 # log issues
 
     Code
-      expect_equal(tune:::log_problems(note_1, ctrl_f, rs, "toledo", res_1, bad_only = FALSE),
-      dplyr::bind_rows(note_1, note_2))
-    Message
-      x Fold01: toledo: Error in log("a"): non-numeric argument to mathematical function
-
----
-
-    Code
       expect_equal(tune:::log_problems(note_1, ctrl_f, rs, "toledo", res_3, bad_only = FALSE),
       dplyr::bind_rows(note_1, note_3))
     Message
@@ -90,7 +82,7 @@
       out_1 <- tune:::.catch_and_log(log("a"), ctrl_f, rs, "toledo", bad_only = FALSE,
       notes = null)
     Message
-      x Fold01: toledo: Error in log("a"): non-numeric argument to mathematical function
+      ! Fold01: toledo: non-numeric argument to mathematical function
 
 ---
 
@@ -106,7 +98,7 @@
       out_5 <- tune:::.catch_and_log(log("a"), ctrl_f, NULL, "toledo", bad_only = FALSE,
       notes = null)
     Message
-      x toledo: Error in log("a"): non-numeric argument to mathematical function
+      ! toledo: non-numeric argument to mathematical function
 
 ---
 

@@ -25,51 +25,61 @@
       v Fold01: preprocessor 1/1
       i Fold01: preprocessor 1/1, model 1/1
       v Fold01: preprocessor 1/1, model 1/1
+      i Fold01: preprocessor 1/1, model 1/1 (extracts)
       i Fold01: preprocessor 1/1, model 1/1 (predictions)
       i Fold02: preprocessor 1/1
       v Fold02: preprocessor 1/1
       i Fold02: preprocessor 1/1, model 1/1
       v Fold02: preprocessor 1/1, model 1/1
+      i Fold02: preprocessor 1/1, model 1/1 (extracts)
       i Fold02: preprocessor 1/1, model 1/1 (predictions)
       i Fold03: preprocessor 1/1
       v Fold03: preprocessor 1/1
       i Fold03: preprocessor 1/1, model 1/1
       v Fold03: preprocessor 1/1, model 1/1
+      i Fold03: preprocessor 1/1, model 1/1 (extracts)
       i Fold03: preprocessor 1/1, model 1/1 (predictions)
       i Fold04: preprocessor 1/1
       v Fold04: preprocessor 1/1
       i Fold04: preprocessor 1/1, model 1/1
       v Fold04: preprocessor 1/1, model 1/1
+      i Fold04: preprocessor 1/1, model 1/1 (extracts)
       i Fold04: preprocessor 1/1, model 1/1 (predictions)
       i Fold05: preprocessor 1/1
       v Fold05: preprocessor 1/1
       i Fold05: preprocessor 1/1, model 1/1
       v Fold05: preprocessor 1/1, model 1/1
+      i Fold05: preprocessor 1/1, model 1/1 (extracts)
       i Fold05: preprocessor 1/1, model 1/1 (predictions)
       i Fold06: preprocessor 1/1
       v Fold06: preprocessor 1/1
       i Fold06: preprocessor 1/1, model 1/1
       v Fold06: preprocessor 1/1, model 1/1
+      i Fold06: preprocessor 1/1, model 1/1 (extracts)
       i Fold06: preprocessor 1/1, model 1/1 (predictions)
       i Fold07: preprocessor 1/1
       v Fold07: preprocessor 1/1
       i Fold07: preprocessor 1/1, model 1/1
       v Fold07: preprocessor 1/1, model 1/1
+      i Fold07: preprocessor 1/1, model 1/1 (extracts)
       i Fold07: preprocessor 1/1, model 1/1 (predictions)
       i Fold08: preprocessor 1/1
       v Fold08: preprocessor 1/1
       i Fold08: preprocessor 1/1, model 1/1
       v Fold08: preprocessor 1/1, model 1/1
+      i Fold08: preprocessor 1/1, model 1/1 (extracts)
       i Fold08: preprocessor 1/1, model 1/1 (predictions)
       i Fold09: preprocessor 1/1
       v Fold09: preprocessor 1/1
       i Fold09: preprocessor 1/1, model 1/1
       v Fold09: preprocessor 1/1, model 1/1
+      i Fold09: preprocessor 1/1, model 1/1 (extracts)
       i Fold09: preprocessor 1/1, model 1/1 (predictions)
       i Fold10: preprocessor 1/1
       v Fold10: preprocessor 1/1
       i Fold10: preprocessor 1/1, model 1/1
       v Fold10: preprocessor 1/1, model 1/1
+      i Fold10: preprocessor 1/1, model 1/1 (extracts)
       i Fold10: preprocessor 1/1, model 1/1 (predictions)
       v Estimating performance
       (x) Newest results:	rmse=2.666 (+/-0.281)
@@ -88,51 +98,61 @@
       v Fold01: preprocessor 1/1
       i Fold01: preprocessor 1/1, model 1/1
       v Fold01: preprocessor 1/1, model 1/1
+      i Fold01: preprocessor 1/1, model 1/1 (extracts)
       i Fold01: preprocessor 1/1, model 1/1 (predictions)
       i Fold02: preprocessor 1/1
       v Fold02: preprocessor 1/1
       i Fold02: preprocessor 1/1, model 1/1
       v Fold02: preprocessor 1/1, model 1/1
+      i Fold02: preprocessor 1/1, model 1/1 (extracts)
       i Fold02: preprocessor 1/1, model 1/1 (predictions)
       i Fold03: preprocessor 1/1
       v Fold03: preprocessor 1/1
       i Fold03: preprocessor 1/1, model 1/1
       v Fold03: preprocessor 1/1, model 1/1
+      i Fold03: preprocessor 1/1, model 1/1 (extracts)
       i Fold03: preprocessor 1/1, model 1/1 (predictions)
       i Fold04: preprocessor 1/1
       v Fold04: preprocessor 1/1
       i Fold04: preprocessor 1/1, model 1/1
       v Fold04: preprocessor 1/1, model 1/1
+      i Fold04: preprocessor 1/1, model 1/1 (extracts)
       i Fold04: preprocessor 1/1, model 1/1 (predictions)
       i Fold05: preprocessor 1/1
       v Fold05: preprocessor 1/1
       i Fold05: preprocessor 1/1, model 1/1
       v Fold05: preprocessor 1/1, model 1/1
+      i Fold05: preprocessor 1/1, model 1/1 (extracts)
       i Fold05: preprocessor 1/1, model 1/1 (predictions)
       i Fold06: preprocessor 1/1
       v Fold06: preprocessor 1/1
       i Fold06: preprocessor 1/1, model 1/1
       v Fold06: preprocessor 1/1, model 1/1
+      i Fold06: preprocessor 1/1, model 1/1 (extracts)
       i Fold06: preprocessor 1/1, model 1/1 (predictions)
       i Fold07: preprocessor 1/1
       v Fold07: preprocessor 1/1
       i Fold07: preprocessor 1/1, model 1/1
       v Fold07: preprocessor 1/1, model 1/1
+      i Fold07: preprocessor 1/1, model 1/1 (extracts)
       i Fold07: preprocessor 1/1, model 1/1 (predictions)
       i Fold08: preprocessor 1/1
       v Fold08: preprocessor 1/1
       i Fold08: preprocessor 1/1, model 1/1
       v Fold08: preprocessor 1/1, model 1/1
+      i Fold08: preprocessor 1/1, model 1/1 (extracts)
       i Fold08: preprocessor 1/1, model 1/1 (predictions)
       i Fold09: preprocessor 1/1
       v Fold09: preprocessor 1/1
       i Fold09: preprocessor 1/1, model 1/1
       v Fold09: preprocessor 1/1, model 1/1
+      i Fold09: preprocessor 1/1, model 1/1 (extracts)
       i Fold09: preprocessor 1/1, model 1/1 (predictions)
       i Fold10: preprocessor 1/1
       v Fold10: preprocessor 1/1
       i Fold10: preprocessor 1/1, model 1/1
       v Fold10: preprocessor 1/1, model 1/1
+      i Fold10: preprocessor 1/1, model 1/1 (extracts)
       i Fold10: preprocessor 1/1, model 1/1 (predictions)
       v Estimating performance
       (x) Newest results:	rmse=2.453 (+/-0.381)
@@ -211,51 +231,61 @@
       v Fold01: preprocessor 1/1
       i Fold01: preprocessor 1/1, model 1/1
       v Fold01: preprocessor 1/1, model 1/1
+      i Fold01: preprocessor 1/1, model 1/1 (extracts)
       i Fold01: preprocessor 1/1, model 1/1 (predictions)
       i Fold02: preprocessor 1/1
       v Fold02: preprocessor 1/1
       i Fold02: preprocessor 1/1, model 1/1
       v Fold02: preprocessor 1/1, model 1/1
+      i Fold02: preprocessor 1/1, model 1/1 (extracts)
       i Fold02: preprocessor 1/1, model 1/1 (predictions)
       i Fold03: preprocessor 1/1
       v Fold03: preprocessor 1/1
       i Fold03: preprocessor 1/1, model 1/1
       v Fold03: preprocessor 1/1, model 1/1
+      i Fold03: preprocessor 1/1, model 1/1 (extracts)
       i Fold03: preprocessor 1/1, model 1/1 (predictions)
       i Fold04: preprocessor 1/1
       v Fold04: preprocessor 1/1
       i Fold04: preprocessor 1/1, model 1/1
       v Fold04: preprocessor 1/1, model 1/1
+      i Fold04: preprocessor 1/1, model 1/1 (extracts)
       i Fold04: preprocessor 1/1, model 1/1 (predictions)
       i Fold05: preprocessor 1/1
       v Fold05: preprocessor 1/1
       i Fold05: preprocessor 1/1, model 1/1
       v Fold05: preprocessor 1/1, model 1/1
+      i Fold05: preprocessor 1/1, model 1/1 (extracts)
       i Fold05: preprocessor 1/1, model 1/1 (predictions)
       i Fold06: preprocessor 1/1
       v Fold06: preprocessor 1/1
       i Fold06: preprocessor 1/1, model 1/1
       v Fold06: preprocessor 1/1, model 1/1
+      i Fold06: preprocessor 1/1, model 1/1 (extracts)
       i Fold06: preprocessor 1/1, model 1/1 (predictions)
       i Fold07: preprocessor 1/1
       v Fold07: preprocessor 1/1
       i Fold07: preprocessor 1/1, model 1/1
       v Fold07: preprocessor 1/1, model 1/1
+      i Fold07: preprocessor 1/1, model 1/1 (extracts)
       i Fold07: preprocessor 1/1, model 1/1 (predictions)
       i Fold08: preprocessor 1/1
       v Fold08: preprocessor 1/1
       i Fold08: preprocessor 1/1, model 1/1
       v Fold08: preprocessor 1/1, model 1/1
+      i Fold08: preprocessor 1/1, model 1/1 (extracts)
       i Fold08: preprocessor 1/1, model 1/1 (predictions)
       i Fold09: preprocessor 1/1
       v Fold09: preprocessor 1/1
       i Fold09: preprocessor 1/1, model 1/1
       v Fold09: preprocessor 1/1, model 1/1
+      i Fold09: preprocessor 1/1, model 1/1 (extracts)
       i Fold09: preprocessor 1/1, model 1/1 (predictions)
       i Fold10: preprocessor 1/1
       v Fold10: preprocessor 1/1
       i Fold10: preprocessor 1/1, model 1/1
       v Fold10: preprocessor 1/1, model 1/1
+      i Fold10: preprocessor 1/1, model 1/1 (extracts)
       i Fold10: preprocessor 1/1, model 1/1 (predictions)
       v Estimating performance
       (x) Newest results:	rmse=2.666 (+/-0.281)
@@ -274,51 +304,61 @@
       v Fold01: preprocessor 1/1
       i Fold01: preprocessor 1/1, model 1/1
       v Fold01: preprocessor 1/1, model 1/1
+      i Fold01: preprocessor 1/1, model 1/1 (extracts)
       i Fold01: preprocessor 1/1, model 1/1 (predictions)
       i Fold02: preprocessor 1/1
       v Fold02: preprocessor 1/1
       i Fold02: preprocessor 1/1, model 1/1
       v Fold02: preprocessor 1/1, model 1/1
+      i Fold02: preprocessor 1/1, model 1/1 (extracts)
       i Fold02: preprocessor 1/1, model 1/1 (predictions)
       i Fold03: preprocessor 1/1
       v Fold03: preprocessor 1/1
       i Fold03: preprocessor 1/1, model 1/1
       v Fold03: preprocessor 1/1, model 1/1
+      i Fold03: preprocessor 1/1, model 1/1 (extracts)
       i Fold03: preprocessor 1/1, model 1/1 (predictions)
       i Fold04: preprocessor 1/1
       v Fold04: preprocessor 1/1
       i Fold04: preprocessor 1/1, model 1/1
       v Fold04: preprocessor 1/1, model 1/1
+      i Fold04: preprocessor 1/1, model 1/1 (extracts)
       i Fold04: preprocessor 1/1, model 1/1 (predictions)
       i Fold05: preprocessor 1/1
       v Fold05: preprocessor 1/1
       i Fold05: preprocessor 1/1, model 1/1
       v Fold05: preprocessor 1/1, model 1/1
+      i Fold05: preprocessor 1/1, model 1/1 (extracts)
       i Fold05: preprocessor 1/1, model 1/1 (predictions)
       i Fold06: preprocessor 1/1
       v Fold06: preprocessor 1/1
       i Fold06: preprocessor 1/1, model 1/1
       v Fold06: preprocessor 1/1, model 1/1
+      i Fold06: preprocessor 1/1, model 1/1 (extracts)
       i Fold06: preprocessor 1/1, model 1/1 (predictions)
       i Fold07: preprocessor 1/1
       v Fold07: preprocessor 1/1
       i Fold07: preprocessor 1/1, model 1/1
       v Fold07: preprocessor 1/1, model 1/1
+      i Fold07: preprocessor 1/1, model 1/1 (extracts)
       i Fold07: preprocessor 1/1, model 1/1 (predictions)
       i Fold08: preprocessor 1/1
       v Fold08: preprocessor 1/1
       i Fold08: preprocessor 1/1, model 1/1
       v Fold08: preprocessor 1/1, model 1/1
+      i Fold08: preprocessor 1/1, model 1/1 (extracts)
       i Fold08: preprocessor 1/1, model 1/1 (predictions)
       i Fold09: preprocessor 1/1
       v Fold09: preprocessor 1/1
       i Fold09: preprocessor 1/1, model 1/1
       v Fold09: preprocessor 1/1, model 1/1
+      i Fold09: preprocessor 1/1, model 1/1 (extracts)
       i Fold09: preprocessor 1/1, model 1/1 (predictions)
       i Fold10: preprocessor 1/1
       v Fold10: preprocessor 1/1
       i Fold10: preprocessor 1/1, model 1/1
       v Fold10: preprocessor 1/1, model 1/1
+      i Fold10: preprocessor 1/1, model 1/1 (extracts)
       i Fold10: preprocessor 1/1, model 1/1 (predictions)
       v Estimating performance
       (x) Newest results:	rmse=2.453 (+/-0.381)
@@ -345,8 +385,10 @@
     Code
       cars_res <- tune_bayes(svm_mod, preprocessor = rec, resamples = data_folds)
     Message
-      x Fold1: preprocessor 1/1: Error in if (!is.null(args$df) && is.null(args$knots) && args$df - degre...
-      x Fold2: preprocessor 1/1: Error in if (!is.null(args$df) && is.null(args$knots) && args$df - degre...
+      ! Fold1: preprocessor 1/1: missing value where TRUE/FALSE needed
+      x Fold1: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
+      ! Fold2: preprocessor 1/1: missing value where TRUE/FALSE needed
+      x Fold2: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
@@ -363,12 +405,10 @@
           1
         }, save_pred = TRUE))
     Message
-      x Fold1: preprocessor 1/1:
-        Error in `get_all_predictors()`:
-        ! The following predictors were not found in `data`: 'z'.
-      x Fold2: preprocessor 1/1:
-        Error in `get_all_predictors()`:
-        ! The following predictors were not found in `data`: 'z'.
+      ! Fold1: preprocessor 1/1: The following predictors were not found in `data`: 'z'.
+      x Fold1: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
+      ! Fold2: preprocessor 1/1: The following predictors were not found in `data`: 'z'.
+      x Fold2: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
@@ -506,7 +546,6 @@
       ! All of the rsq estimates were missing. The Gaussian process model cannot be
         fit to the data.
       ! Gaussian process model: no non-missing arguments to min; returning Inf, no non-missing arguments...
-      x Gaussian process model: Error in seq_len(n - 1L): argument must be coercible to non-negative int...
     Condition
       Error in `check_gp_failure()`:
       ! Gaussian process model was not fit.

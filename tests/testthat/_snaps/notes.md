@@ -3,36 +3,66 @@
     Code
       res_roles <- role_bp_wflow %>% fit_resamples(rs)
     Message
-      x Fold01: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold02: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold03: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold04: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold05: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold06: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold07: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold08: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold09: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
-      x Fold10: preprocessor 1/1, model 1/1 (predictions):
-        Error in `step_date()`:
-        ! The following required column is missing from `new_data` in step 'st...
+      ! Fold01: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold01: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold02: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold02: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold03: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold03: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold04: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold04: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold05: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold05: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold06: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold06: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold07: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold07: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold08: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold08: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold09: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold09: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
+      ! Fold10: preprocessor 1/1, model 1/1 (predictions): The following required column is missing from `new_data` in step 'step_d...
+      x Fold10: internal:
+        Error in `metric_set()`:
+        ! Failed to compute `rmse()`.
+        Caused by error in `UseMethod()`:
+        ! no applicable method for 'group_by' applied to an object of class "l...
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
@@ -43,9 +73,11 @@
       show_notes(res_roles)
     Output
       unique notes:
-      --------------------------------------------------------------------------------
-      Error in `step_date()`:
-      ! The following required column is missing from `new_data` in step 'step_date': date.
+      --------------------------------------------------------------------------
+      Error in `metric_set()`:
+      ! Failed to compute `rmse()`.
+      Caused by error in `UseMethod()`:
+      ! no applicable method for 'group_by' applied to an object of class "list"
 
 ---
 

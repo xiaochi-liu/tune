@@ -6,8 +6,10 @@
         1
       }, save_pred = TRUE))
     Message
-      x Fold1: preprocessor 1/1: Error in if (!is.null(args$df) && is.null(args$knots) && args$df - degre...
-      x Fold2: preprocessor 1/1: Error in if (!is.null(args$df) && is.null(args$knots) && args$df - degre...
+      ! Fold1: preprocessor 1/1: missing value where TRUE/FALSE needed
+      x Fold1: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
+      ! Fold2: preprocessor 1/1: missing value where TRUE/FALSE needed
+      x Fold2: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
@@ -20,12 +22,10 @@
         1
       }, save_pred = TRUE))
     Message
-      x Fold1: preprocessor 1/1:
-        Error in `get_all_predictors()`:
-        ! The following predictors were not found in `data`: 'z'.
-      x Fold2: preprocessor 1/1:
-        Error in `get_all_predictors()`:
-        ! The following predictors were not found in `data`: 'z'.
+      ! Fold1: preprocessor 1/1: The following predictors were not found in `data`: 'z'.
+      x Fold1: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
+      ! Fold2: preprocessor 1/1: The following predictors were not found in `data`: 'z'.
+      x Fold2: internal: Error in UseMethod("extract_spec_parsnip"): no applicable method for 'ex...
     Condition
       Warning:
       All models failed. Run `show_notes(.Last.tune.result)` for more information.
